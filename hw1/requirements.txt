@@ -1,0 +1,4 @@
+pathlib
+matplotlib
+torch
+torchvision

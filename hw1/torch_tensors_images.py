@@ -50,6 +50,7 @@ def show_tensor_image(img_tensor: torch.Tensor, title: str, save_path: Path | No
     img_tensor = img_tensor.permute(1, 2, 0)
     img_tensor = img_tensor.detach().cpu().numpy()
     plt.imshow(img_tensor)
+    plt.show()
 
 
 def image_tensor_to_vector(img_tensor: torch.Tensor) -> torch.Tensor:
@@ -95,7 +96,7 @@ def main() -> None:
     # TODO: reshape vec back to the original image shape and verify it matches the original tensor
     orig_shape = vec.reshape(img_tensor.shape)
     print(f'Reshaped vec matches original: {torch.equal(img_tensor, orig_shape)}')
-
+    show_tensor_image(orig_shape, title=f"Reshaped vec - {class_name}")
     show_tensor_image(img_tensor, title=f"CIFAR-10 — {class_name}")
 
 
