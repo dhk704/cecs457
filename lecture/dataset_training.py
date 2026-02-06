@@ -58,4 +58,15 @@ print(mynetwork.forward(images))
 # Batch size of 64 with 10 output parameters
 print(mynetwork(images).shape)
 
+# If model is preferable, keep the parameters for future testing.
+params = list(mynetwork.parameters())
+print(params)
 
+# 1st layer (params[0]) - matrix
+# 2nd layer (params[1]) - bias
+# 3rd layer (params[2]) - ?
+print(params[0].shape)
+
+# Calculate number of parameters used in the model
+num_params = sum(p.numel() for p in mynetwork.parameters())
+print(f'Number of parameters: {num_params}')
